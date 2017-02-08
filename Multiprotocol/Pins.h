@@ -99,24 +99,24 @@
 	#define A7105_CSN_port	PORTD
 	#define A7105_CSN_ddr	DDRD
 	#define A7105_CSN_output	A7105_CSN_ddr |= _BV(A7105_CSN_pin)
-	#define A7105_CSN_on	A7105_CSN_port |=  _BV(A7105_CSN_pin)
-	#define A7105_CSN_off	A7105_CSN_port &= ~_BV(A7105_CSN_pin)
+	#define A7105_CSN_on	A7105_CSN_port.OUT |= _BV(A7105_CSN_pin)
+	#define A7105_CSN_off	A7105_CSN_port.OUT &= ~_BV(A7105_CSN_pin)
 
 	// CC2500
 	#define CC25_CSN_pin	7								//D7 = PD7
 	#define CC25_CSN_port	PORTD
 	#define CC25_CSN_ddr	DDRD
 	#define CC25_CSN_output	CC25_CSN_ddr  |=  _BV(CC25_CSN_pin)
-	#define CC25_CSN_on		CC25_CSN_port |=  _BV(CC25_CSN_pin)
-	#define CC25_CSN_off	CC25_CSN_port &= ~_BV(CC25_CSN_pin)
+	#define CC25_CSN_on		CC25_CSN_port.OUT |=  _BV(CC25_CSN_pin)
+	#define CC25_CSN_off	CC25_CSN_port.OUT &= ~_BV(CC25_CSN_pin)
 
 	// NRF24L01
 	#define NRF_CSN_pin		0								//D8 = PB0
 	#define NRF_CSN_port	PORTB
 	#define NRF_CSN_ddr		DDRB
 	#define NRF_CSN_output	NRF_CSN_ddr  |=  _BV(NRF_CSN_pin)
-	#define NRF_CSN_on		NRF_CSN_port |=  _BV(NRF_CSN_pin)
-	#define NRF_CSN_off		NRF_CSN_port &= ~_BV(NRF_CSN_pin)
+	#define NRF_CSN_on		NRF_CSN_port.OUT |= _BV(NRF_CSN_pin)
+	#define NRF_CSN_off		NRF_CSN_port.OUT &= ~_BV(NRF_CSN_pin)
 	#define NRF_CE_on
 	#define NRF_CE_off
 
@@ -145,8 +145,8 @@
 		#define CYRF_RST_port	PORTC
 		#define CYRF_RST_ddr	DDRC
 		#define CYRF_RST_output	CYRF_RST_ddr  |=  _BV(CYRF_RST_pin)
-		#define CYRF_RST_HI		CYRF_RST_port |=  _BV(CYRF_RST_pin)
-		#define CYRF_RST_LO		CYRF_RST_port &= ~_BV(CYRF_RST_pin)
+		#define CYRF_RST_HI		CYRF_RST_port |=  (uint8_t)_BV(CYRF_RST_pin)
+		#define CYRF_RST_LO		CYRF_RST_port &= (uint8_t)~_BV(CYRF_RST_pin)
 	#endif
 
 	//RF Switch

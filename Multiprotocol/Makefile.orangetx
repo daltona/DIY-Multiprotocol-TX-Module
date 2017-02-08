@@ -396,6 +396,12 @@ ALL_ASFLAGS = -mmcu=$(MCU) -I. -x assembler-with-cpp $(ASFLAGS)
 # Default target.
 all: begin gccversion sizebefore build sizeafter end
 
+MultiOrange.cpp: MultiOrange.cpp.orangetx
+	ln -sf MultiOrange.cpp.orangetx MultiOrange.cpp
+
+Wmath.cpp: Wmath.cpp.orangetx
+	ln -sf Wmath.cpp.orangetx Wmath.cpp
+
 # Change the build target to build a HEX file or a library.
 build: elf hex eep lss sym bin
 #build: lib
